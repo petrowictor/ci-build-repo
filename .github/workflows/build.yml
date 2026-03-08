@@ -21,7 +21,7 @@ jobs:
       - name: Build image
         run: |
           cd app
-          docker build -t myrepo/myapp:latest .
+          docker build -t petrowictor/api-app:latest .
 
       - name: Push image
-        run: docker push myrepo/myapp:latest
+        run: docker push mpetrowictor/api-app:latest
