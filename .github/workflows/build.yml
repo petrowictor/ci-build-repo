@@ -24,4 +24,4 @@ jobs:
           docker build -t petrowictor/api-app:latest .
 
       - name: Push image
-        run: docker push mpetrowictor/api-app:latest
+        run: docker push petrowictor/api-app:latest
