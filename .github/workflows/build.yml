@@ -1,0 +1,27 @@
+name: Build Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Clone application repo
+        run: git clone https://github.com/petrowictor/spring-boot-api
+
+      - name: Login Docker
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login \
+          -u "${{ secrets.DOCKER_USER }}" \
+          --password-stdin
+
+      - name: Build image
+        run: |
+          cd app
+          docker build -t myrepo/myapp:latest .
+
+      - name: Push image
+        run: docker push myrepo/myapp:latest
